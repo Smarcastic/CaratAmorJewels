@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Cta from '@/components/ui/Cta';
 import WhatsappGlyph from '@/components/ui/WhatsappGlyph';
 import { COLLECTIONS } from '@/content/products';
@@ -61,17 +61,29 @@ export default function ConsultationForm() {
     }
   };
 
-  const waText = `Hello Carat Amor, I'd like to book a private consultation.${
-    form.name ? ` My name is ${form.name}.` : ''
-  }${form.interest ? ` I'm interested in ${form.interest}.` : ''}`;
+  // Full booking summary — lands in WhatsApp ready to send.
+  const waText = [
+    `Hello Carat Amor, I'd like to book a private consultation.`,
+    form.name ? `Name: ${form.name}` : null,
+    form.phone ? `Phone: ${form.phone}` : null,
+    form.date ? `Preferred date: ${form.date}` : null,
+    form.time ? `Preferred time: ${form.time}` : null,
+    form.interest ? `Interested in: ${form.interest}` : null,
+    form.message ? `Note: ${form.message}` : null,
+  ]
+    .filter(Boolean)
+    .join('\n');
+
+  const today = new Date().toISOString().split('T')[0];
 
   const inputCls =
     'w-full rounded-[2px] border border-ink/20 bg-porcelain px-4 py-3 font-body text-md font-light text-ink outline-none transition-colors placeholder:text-ink/30 focus:border-champagne focus:ring-2 focus:ring-champagne/40';
 
   return (
     <div className="relative">
-      <AnimatePresence mode="wait">
-        {status === 'done' ? (
+      {/* Simple conditional swap — success card animates in on mount.
+          (No AnimatePresence exit: deterministic under React 19.) */}
+      {status === 'done' ? (
           <motion.div
             key="success"
             initial={{ opacity: 0, y: 16 }}
@@ -88,27 +100,19 @@ export default function ConsultationForm() {
               {form.date ? ` for ${form.date}` : ''}
               {form.time ? `, ${form.time.toLowerCase()}` : ''}. Our team will be in touch shortly to confirm the details.
             </p>
-            {!delivered && (
-              <p className="mt-4 max-w-[46ch] font-body text-sm font-light text-ink/50">
-                To confirm the fastest, you can also send us a note on WhatsApp.
-              </p>
-            )}
+            <p className="mt-4 max-w-[46ch] font-body text-sm font-light text-ink/50">
+              {delivered
+                ? 'For the fastest reply, you can also reach us directly on WhatsApp — your details are pre-filled.'
+                : 'One more tap: send it to us on WhatsApp — your details are already pre-filled, and it reaches us instantly.'}
+            </p>
             <div className="mt-8">
-              <Cta href={waLink(waText)} external variant="ghost-light">
-                <WhatsappGlyph size={16} stroke="currentColor" /> Continue on WhatsApp
+              <Cta href={waLink(waText)} external variant="solid">
+                <WhatsappGlyph size={16} stroke="currentColor" /> Send on WhatsApp
               </Cta>
             </div>
           </motion.div>
         ) : (
-          <motion.form
-            key="form"
-            onSubmit={onSubmit}
-            noValidate
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.4 }}
-            className="space-y-7"
-          >
+          <form key="form" onSubmit={onSubmit} noValidate className="space-y-7">
             <div className="grid grid-cols-1 gap-7 sm:grid-cols-2">
               <Field label="Name" htmlFor="name" error={errors.name}>
                 <input
@@ -144,6 +148,7 @@ export default function ConsultationForm() {
                   id="date"
                   name="date"
                   type="date"
+                  min={today}
                   className={inputCls}
                   value={form.date}
                   onChange={(e) => set('date', e.target.value)}
@@ -211,9 +216,8 @@ export default function ConsultationForm() {
                 {status === 'sending' ? 'Sending…' : 'Request Consultation'}
               </Cta>
             </div>
-          </motion.form>
+          </form>
         )}
-      </AnimatePresence>
     </div>
   );
 }

@@ -74,7 +74,7 @@ export const PIECES: Piece[] = [
     collection: 'solitaires',
     metal: '18k Rose Gold',
     diamond: 'Oval brilliant, lab-grown',
-    carat: '[TODO] ~1.20ct',
+    carat: '~1.20ct',
     image: 'oval-rose-crossover.png',
     alt: 'Oval lab-grown diamond solitaire ring in 18k rose gold with a crossover pavé band, on black marble beside burgundy silk.',
     description:
@@ -87,7 +87,7 @@ export const PIECES: Piece[] = [
     collection: 'solitaires',
     metal: '18k White Gold',
     diamond: 'Oval brilliant, lab-grown',
-    carat: '[TODO] ~1.50ct',
+    carat: '~1.50ct',
     image: 'oval-bypass-eastwest.png',
     alt: 'East-west set oval lab-grown diamond ring in white gold with a bypass pavé band, on black marble.',
     description:
@@ -102,7 +102,7 @@ export const PIECES: Piece[] = [
     collection: 'bridal',
     metal: '18k White Gold',
     diamond: 'Oval brilliant with diamond halo',
-    carat: '[TODO] ~1.80ct centre',
+    carat: '~1.80ct centre',
     image: 'oval-halo-bridal-set.png',
     alt: 'Oval lab-grown diamond halo engagement ring with a matching pavé wedding band in white gold, on black marble with burgundy silk.',
     description:
@@ -115,7 +115,7 @@ export const PIECES: Piece[] = [
     collection: 'bridal',
     metal: '18k White Gold',
     diamond: 'Round brilliant, lab-grown',
-    carat: '[TODO] ~3.00ct centre',
+    carat: '~3.00ct centre',
     image: 'round-trinity-solitaire.png',
     alt: 'Round brilliant lab-grown diamond solitaire flanked by three rows of pavé in white gold, reflected on black marble.',
     description:
@@ -128,7 +128,7 @@ export const PIECES: Piece[] = [
     collection: 'bridal',
     metal: '18k White Gold',
     diamond: 'Emerald cut with emerald-cut eternity',
-    carat: '[TODO] ~4.00ct centre',
+    carat: '~4.00ct centre',
     image: 'emerald-eternity-duo.png',
     alt: 'Emerald-cut lab-grown diamond ring set on a full emerald-cut eternity band in white gold, shown as two views on black marble.',
     description:
@@ -141,7 +141,7 @@ export const PIECES: Piece[] = [
     collection: 'bridal',
     metal: '18k Yellow Gold',
     diamond: 'Emerald cut with tapered baguettes',
-    carat: '[TODO] ~1.50ct centre',
+    carat: '~1.50ct centre',
     image: 'emerald-baguette-trilogy.png',
     alt: 'Emerald-cut lab-grown diamond three-stone ring with tapered baguette side stones in yellow gold, on dark marble.',
     description:
@@ -156,7 +156,7 @@ export const PIECES: Piece[] = [
     collection: 'signature',
     metal: '18k Yellow Gold',
     diamond: 'Oval brilliant with pink marquise',
-    carat: '[TODO] ~1.00ct pair',
+    carat: '~1.00ct pair',
     image: 'toi-et-moi-blush.png',
     alt: 'Toi-et-moi ring pairing a white oval and a pink marquise lab-grown diamond in yellow gold, with a curved pavé contour band, on ivory stone.',
     description:
@@ -169,7 +169,7 @@ export const PIECES: Piece[] = [
     collection: 'signature',
     metal: '18k White Gold',
     diamond: 'Pear and marquise cluster',
-    carat: '[TODO] ~2.50ct total',
+    carat: '~2.50ct total',
     image: 'pear-marquise-cluster.png',
     alt: 'Two sculptural cluster rings pairing pear and marquise lab-grown diamonds in white gold, on black marble.',
     description:
@@ -184,7 +184,7 @@ export const PIECES: Piece[] = [
     collection: 'everyday',
     metal: '18k White Gold',
     diamond: 'Round brilliant, lab-grown',
-    carat: '[TODO] ~1.00ct pair',
+    carat: '~1.00ct pair',
     image: 'round-double-huggie.png',
     alt: 'A pair of double-row round lab-grown diamond huggie earrings in white gold, on a dark tray against brown silk.',
     description:
@@ -197,7 +197,7 @@ export const PIECES: Piece[] = [
     collection: 'everyday',
     metal: '18k Yellow Gold',
     diamond: 'Fancy-shape lab-grown diamonds',
-    carat: '[TODO] ~7.00ct total',
+    carat: '~7.00ct total',
     image: 'multi-shape-tennis-bracelet.png',
     alt: 'Yellow gold tennis bracelet alternating pear, oval, emerald and marquise lab-grown diamonds, on black marble with burgundy velvet.',
     description:
@@ -212,7 +212,7 @@ export const PIECES: Piece[] = [
     collection: 'mens',
     metal: '18k Yellow Gold',
     diamond: 'Emerald cut, lab-grown',
-    carat: '[TODO] ~1.00ct',
+    carat: '~1.00ct',
     image: 'emerald-signet-band.png',
     alt: 'A solitaire emerald-cut lab-grown diamond set flush into a broad yellow gold band, on dark marble.',
     description:

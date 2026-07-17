@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion';
 import SectionLabel from '@/components/ui/SectionLabel';
 import Cta from '@/components/ui/Cta';
-import { HOME, CONTACT } from '@/content/site';
+import { HOME } from '@/content/site';
+import { certPhrase } from '@/lib/cert';
 import { EASE_MAISON, inView } from '@/lib/motion';
 
 /**
@@ -46,7 +47,7 @@ export default function Future() {
           transition={{ duration: 1, delay: 0.2 }}
         >
           <p className="max-w-[52ch] font-body text-sm font-light text-champagne/90">
-            {future.kicker} Certified by {CONTACT.certificationBody}.
+            {future.kicker} Every stone {certPhrase()}.
           </p>
           <Cta href="/lab-grown" variant="ghost">
             {future.cta}

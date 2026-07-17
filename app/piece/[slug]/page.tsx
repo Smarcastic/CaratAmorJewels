@@ -7,7 +7,8 @@ import Cta from '@/components/ui/Cta';
 import WhatsappGlyph from '@/components/ui/WhatsappGlyph';
 import { PIECES, getPiece, getCollection, getProductImage, relatedPieces } from '@/lib/products';
 import { waLink, waPieceText } from '@/lib/whatsapp';
-import { BRAND, CONTACT } from '@/content/site';
+import { certSpecValue } from '@/lib/cert';
+import { BRAND } from '@/content/site';
 
 export function generateStaticParams() {
   return PIECES.map((p) => ({ slug: p.slug }));
@@ -46,7 +47,7 @@ export default async function PiecePage({ params }: { params: Promise<{ slug: st
     { label: 'Metal', value: piece.metal },
     { label: 'Diamond', value: piece.diamond },
     { label: 'Carat', value: piece.carat },
-    { label: 'Certification', value: `${CONTACT.certificationBody} Certified` },
+    { label: 'Certification', value: certSpecValue() },
   ];
 
   const jsonLd = {

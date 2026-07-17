@@ -1,12 +1,16 @@
+import { CONTACT } from '@/content/site';
+
 /**
- * Provider-agnostic enquiry dispatch. This is a STUB — wire it to your
- * transactional email provider (Resend, SMTP, etc.) by filling in the marked
- * block and adding the relevant key to your environment.
+ * Consultation enquiry dispatch.
  *
- *   Resend example:
- *     const { Resend } = await import('resend');
- *     const resend = new Resend(process.env.RESEND_API_KEY);
- *     await resend.emails.send({ from, to, subject, html });
+ * Emails are sent to CONTACT.email (smaranreddyd@gmail.com) via Resend's
+ * HTTP API — no SDK needed. To activate delivery, add RESEND_API_KEY to the
+ * environment (Vercel → Project → Settings → Environment Variables); a free
+ * key from https://resend.com works immediately with the onboarding sender.
+ *
+ * With no key configured, the enquiry is logged server-side and the UI
+ * routes the client to WhatsApp with their details pre-filled — so no
+ * enquiry is ever lost either way.
  */
 export interface EnquiryPayload {
   name: string;
@@ -17,26 +21,59 @@ export interface EnquiryPayload {
   message?: string;
 }
 
-export async function sendEnquiry(payload: EnquiryPayload): Promise<{ ok: boolean; delivered: boolean }> {
-  // [TODO] Add a provider key to enable real delivery.
-  const configured = Boolean(process.env.RESEND_API_KEY || process.env.SMTP_URL);
+const TO_EMAIL = CONTACT.email;
 
-  if (!configured) {
-    // No provider configured yet — log server-side so the enquiry is never lost
-    // during setup, and report delivered:false so the UI can offer WhatsApp.
+function renderText(p: EnquiryPayload): string {
+  return [
+    'New consultation request — Carat Amor Jewels',
+    '',
+    `Name:      ${p.name}`,
+    `Phone:     ${p.phone}`,
+    p.date ? `Date:      ${p.date}` : null,
+    p.time ? `Time:      ${p.time}` : null,
+    p.interest ? `Interest:  ${p.interest}` : null,
+    p.message ? `\nMessage:\n${p.message}` : null,
+    '',
+    `Reply on WhatsApp: https://wa.me/${p.phone.replace(/\D/g, '')}`,
+  ]
+    .filter((line): line is string => line !== null)
+    .join('\n');
+}
+
+export async function sendEnquiry(payload: EnquiryPayload): Promise<{ ok: boolean; delivered: boolean }> {
+  const key = process.env.RESEND_API_KEY;
+
+  if (!key) {
+    // No provider configured yet — log server-side so the enquiry is never
+    // lost during setup; the UI offers the WhatsApp handoff.
     console.info('[consultation] enquiry received (no email provider configured):', payload);
     return { ok: true, delivered: false };
   }
 
   try {
-    // ------------------------------------------------------------------
-    // [TODO] Replace this block with your provider's send call.
-    //   e.g. Resend / Nodemailer transport using EMAIL from content/site.ts
-    // ------------------------------------------------------------------
-    console.info('[consultation] enquiry (provider configured, implement send):', payload);
+    const res = await fetch('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${key}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        // Resend's onboarding sender works out of the box; switch to a
+        // verified caratamorjewels.com sender once the domain is added there.
+        from: 'Carat Amor Website <onboarding@resend.dev>',
+        to: [TO_EMAIL],
+        subject: `Consultation request — ${payload.name}`,
+        text: renderText(payload),
+      }),
+    });
+
+    if (!res.ok) {
+      console.error('[consultation] resend error:', res.status, await res.text());
+      return { ok: true, delivered: false };
+    }
     return { ok: true, delivered: true };
   } catch (err) {
     console.error('[consultation] send failed:', err);
-    return { ok: false, delivered: false };
+    return { ok: true, delivered: false };
   }
 }

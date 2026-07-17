@@ -18,7 +18,7 @@ export const CONTACT = {
   // WhatsApp number in full international format, digits only (no +, spaces or dashes).
   whatsappNumber: '918008331188',
   whatsappDisplay: '+91 80083 31188',
-  email: '[TODO: consultations@caratamor.com]',
+  email: 'smaranreddyd@gmail.com',
   addressLocality: 'Hyderabad',
   addressRegion: 'Telangana',
   // Confirmed by owner:

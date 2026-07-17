@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import SectionLabel from '@/components/ui/SectionLabel';
 import Ornament from '@/components/ui/Ornament';
 import { TESTIMONIALS } from '@/content/products';
-import { CONTACT } from '@/content/site';
+import { certBadgeLabel } from '@/lib/cert';
 
 /**
  * Scene 7 — Voices & assurance, on noir. If no real testimonials exist, the
@@ -28,12 +28,11 @@ export default function Voices() {
           <>
             <SectionLabel number="—" label="Voices" className="mb-14 flex justify-center" />
             <div className="relative min-h-[200px]">
-              <AnimatePresence mode="wait">
+              {/* keyed re-mount fade (no AnimatePresence mode="wait" — hangs under React 19) */}
                 <motion.figure
                   key={i}
                   initial={{ opacity: 0, y: 14 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -14 }}
                   transition={{ duration: 0.7 }}
                 >
                   <span aria-hidden className="mx-auto mb-6 block h-8 w-px bg-champagne/50" />
@@ -42,7 +41,6 @@ export default function Voices() {
                   </blockquote>
                   <figcaption className="eyebrow mt-8 text-mist">{TESTIMONIALS[i].author}</figcaption>
                 </motion.figure>
-              </AnimatePresence>
             </div>
           </>
         ) : (
@@ -56,7 +54,7 @@ export default function Voices() {
 
         {/* assurance band — restrained line-art, never badge clip-art */}
         <div className="mt-16 flex flex-wrap items-center justify-center gap-x-16 gap-y-8 border-t border-gold-dim/25 pt-14">
-          <CertMark label={`${CONTACT.certificationBody} Certified`} />
+          <CertMark label={certBadgeLabel()} />
           <CertMark label="Hallmarked Gold" />
           <CertMark label="Conflict-Free" />
         </div>

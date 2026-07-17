@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
 import Logo from '@/components/ui/Logo';
 import WhatsappGlyph from '@/components/ui/WhatsappGlyph';
@@ -12,6 +13,7 @@ import { EASE_MAISON } from '@/lib/motion';
 export default function Nav() {
   const [condensed, setCondensed] = useState(false);
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const onScroll = () => setCondensed(window.scrollY > 80);
@@ -48,17 +50,27 @@ export default function Nav() {
 
           {/* Center — links (desktop) */}
           <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="group relative font-body text-[0.82rem] font-light uppercase tracking-[0.18em] text-ivory/80 transition-colors hover:text-ivory"
-                >
-                  {link.label}
-                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-champagne transition-all duration-300 group-hover:w-full" />
-                </Link>
-              </li>
-            ))}
+            {NAV_LINKS.map((link) => {
+              const active = pathname === link.href || pathname.startsWith(`${link.href}/`);
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    aria-current={active ? 'page' : undefined}
+                    className={`group relative font-body text-[0.82rem] font-light uppercase tracking-[0.18em] transition-colors ${
+                      active ? 'text-champagne' : 'text-ivory/80 hover:text-ivory'
+                    }`}
+                  >
+                    {link.label}
+                    <span
+                      className={`absolute -bottom-1 left-0 h-px bg-champagne transition-all duration-300 ${
+                        active ? 'w-full' : 'w-0 group-hover:w-full'
+                      }`}
+                    />
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Right — CTAs (desktop) */}

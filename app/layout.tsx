@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { marcellus, cormorant, hanken } from '@/lib/fonts';
 import { BRAND, CONTACT } from '@/content/site';
@@ -11,6 +11,13 @@ import FloatingWhatsapp from '@/components/ui/FloatingWhatsapp';
 import Grain from '@/components/ui/Grain';
 
 const SITE_URL = 'https://caratamorjewels.com';
+
+// Mobile browser chrome matches the noir surface — no white flash.
+export const viewport: Viewport = {
+  themeColor: '#0c0709',
+  width: 'device-width',
+  initialScale: 1,
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

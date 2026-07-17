@@ -5,7 +5,7 @@ import MaskedHeading from '@/components/motion/MaskedHeading';
 import SectionLabel from '@/components/ui/SectionLabel';
 import Cta from '@/components/ui/Cta';
 import { LAB_GROWN } from '@/content/labGrown';
-import { CONTACT } from '@/content/site';
+import { certBody } from '@/lib/cert';
 
 export const metadata: Metadata = {
   title: 'Lab-Grown Diamonds',
@@ -137,10 +137,15 @@ export default function LabGrownPage() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="measure font-body text-md font-light text-mist">
-              Each Carat Amor diamond is independently graded by{' '}
-              <span className="text-champagne">{CONTACT.certificationBody}</span> and arrives with its own
-              certificate documenting its cut, colour, clarity and carat. The certificate is your assurance —
-              the same standard applied to the finest mined stones, applied to yours.
+              Each Carat Amor diamond is independently graded
+              {certBody() ? (
+                <>
+                  {' '}by <span className="text-champagne">{certBody()}</span>
+                </>
+              ) : null}{' '}
+              and arrives with its own certificate documenting its cut, colour, clarity and carat. The
+              certificate is your assurance — the same standard applied to the finest mined stones, applied
+              to yours.
             </p>
           </Reveal>
         </div>
