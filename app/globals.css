@@ -1,0 +1,327 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   CARAT AMOR — DESIGN TOKENS
+   "The private showroom at night": deep noir + burgundy,
+   gold as glow, photography enormous, type quiet.
+   No raw hex in components — reference these tokens only.
+   ============================================================ */
+
+@theme {
+  /* Colors */
+  --color-noir: #0c0709; /* page surface — near-black, warm */
+  --color-surface: #160d12; /* elevated cards / bands */
+  --color-burgundy: #571c33; /* ceremonial bands */
+  --color-burgundy-deep: #35101f; /* vignettes, image fields */
+  --color-champagne: #d6a94f; /* brand gold — CTAs, rules, key words */
+  --color-champagne-soft: #e8cb8b; /* gold highlight, inside gold only */
+  --color-gold-dim: #8a6b33; /* hairlines, quiet labels */
+  --color-ivory: #f4ede0; /* primary text on dark */
+  --color-mist: #a9939b; /* muted text on dark */
+  --color-ink: #221a1e; /* text on the one light card (form) */
+  --color-porcelain: #fbf8f2; /* the one light surface (form card) */
+
+  /* Fonts (wired from next/font in layout) */
+  --font-display: var(--font-display), Georgia, serif;
+  --font-accent: var(--font-accent), Georgia, serif;
+  --font-body: var(--font-body), system-ui, sans-serif;
+
+  /* Type scale (rem) */
+  --text-2xs: 0.72rem;
+  --text-xs: 0.875rem;
+  --text-base: 1rem;
+  --text-md: 1.125rem;
+  --text-lg: 1.5rem;
+  --text-xl: 2rem;
+  --text-2xl: 3rem;
+
+  /* Layout */
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-lg: 3rem;
+  --radius-sharp: 2px;
+
+  /* Motion easing (mirrors lib/motion.ts) */
+  --ease-maison: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-soft: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  scroll-behavior: auto; /* Lenis owns smooth scroll */
+}
+
+body {
+  margin: 0;
+  background: var(--color-noir);
+  color: var(--color-ivory);
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1.7;
+  font-size: var(--text-base);
+  overflow-x: hidden;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Selection */
+::selection {
+  background: color-mix(in srgb, var(--color-champagne) 35%, transparent);
+  color: var(--color-ivory);
+}
+
+/* Focus — visible gold ring everywhere (a11y gate) */
+:focus-visible {
+  outline: 2px solid var(--color-champagne);
+  outline-offset: 3px;
+  border-radius: 1px;
+}
+
+/* Hide native cursor only when our custom cursor is active (fine pointers) */
+@media (hover: hover) and (pointer: fine) {
+  html.cursor-ready,
+  html.cursor-ready a,
+  html.cursor-ready button {
+    cursor: none;
+  }
+  html.cursor-ready input,
+  html.cursor-ready textarea,
+  html.cursor-ready select {
+    cursor: auto;
+  }
+}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+   ============================================================ */
+
+.font-display {
+  font-family: var(--font-display);
+}
+.font-accent {
+  font-family: var(--font-accent);
+}
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Eyebrow — Marcellus caps, tracked. Echoes the logo. */
+.eyebrow {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-2xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+.measure {
+  max-width: 60ch;
+}
+
+/* Hairline rule — dim gold */
+.rule-gold {
+  border: 0;
+  height: 1px;
+  background: color-mix(in srgb, var(--color-gold-dim) 55%, transparent);
+}
+
+/* Gold gradient text (for a single key word) */
+.text-gold-grad {
+  background: linear-gradient(
+    100deg,
+    var(--color-champagne) 0%,
+    var(--color-champagne-soft) 45%,
+    var(--color-champagne) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================================================
+   MASKED LINE REVEAL (headlines reveal by line, never by letter)
+   ============================================================ */
+.line-mask {
+  display: block;
+  overflow: hidden;
+}
+.line-mask > span {
+  display: block;
+  will-change: transform;
+}
+
+/* ============================================================
+   LIGHT SWEEP — reusable specular band
+   ============================================================ */
+.light-sweep {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.light-sweep::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    color-mix(in srgb, var(--color-champagne-soft) 45%, transparent) 47%,
+    color-mix(in srgb, #ffffff 55%, transparent) 50%,
+    color-mix(in srgb, var(--color-champagne-soft) 45%, transparent) 53%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  background-position: 200% 0;
+  opacity: 0;
+}
+.light-sweep.is-sweeping::after {
+  animation: light-sweep-move 1.6s var(--ease-maison) forwards;
+}
+@keyframes light-sweep-move {
+  0% {
+    background-position: 200% 0;
+    opacity: 0;
+  }
+  12% {
+    opacity: 1;
+  }
+  88% {
+    opacity: 1;
+  }
+  100% {
+    background-position: -80% 0;
+    opacity: 0;
+  }
+}
+
+/* ============================================================
+   VIGNETTE — static layered light for dark sections (no animation)
+   ============================================================ */
+.vignette {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      60% 45% at 50% 0%,
+      color-mix(in srgb, var(--color-champagne) 6%, transparent) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      50% 50% at 12% 95%,
+      color-mix(in srgb, var(--color-burgundy) 45%, transparent) 0%,
+      transparent 70%
+    );
+}
+
+/* Utility: no-scrollbar */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* ============================================================
+   FILM GRAIN — the room has air in it. Fixed, subtle, everywhere.
+   ============================================================ */
+.grain {
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  z-index: 250;
+  pointer-events: none;
+  opacity: 0.045;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 220px;
+}
+
+/* ============================================================
+   MARQUEE — slow editorial ticker between hero and maison
+   ============================================================ */
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 48s linear infinite;
+}
+
+/* ============================================================
+   GHOST NUMERALS — huge outlined chapter numbers
+   ============================================================ */
+.ghost-num {
+  font-family: var(--font-display);
+  color: transparent;
+  -webkit-text-stroke: 1px color-mix(in srgb, var(--color-champagne) 30%, transparent);
+  line-height: 0.8;
+  user-select: none;
+}
+
+/* ============================================================
+   CTA GOLD FILL — the ghost button pours full on hover
+   ============================================================ */
+.cta-fill {
+  background-image: linear-gradient(var(--color-champagne), var(--color-champagne));
+  background-repeat: no-repeat;
+  background-size: 0% 100%;
+  background-position: 0 0;
+  transition:
+    background-size 0.5s var(--ease-maison),
+    color 0.35s ease-out,
+    border-color 0.35s ease-out;
+}
+.cta-fill:hover {
+  background-size: 100% 100%;
+  color: var(--color-noir);
+  border-color: var(--color-champagne);
+}
+
+/* ============================================================
+   REDUCED MOTION — genuine design, not an afterthought
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  .light-sweep.is-sweeping::after {
+    animation: none;
+    opacity: 0;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
