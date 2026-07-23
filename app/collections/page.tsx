@@ -22,8 +22,8 @@ export default function CollectionsPage() {
           >
             Grown, cut and set in-house.
           </h1>
-          <p className="font-accent mt-6 max-w-[46ch] text-lg italic text-mist">
-            Every piece begins as a seed of carbon and ends in your hands.
+          <p className="font-accent mt-6 max-w-[40ch] text-lg italic text-mist">
+            From a seed of carbon to your hands.
           </p>
         </div>
       </section>

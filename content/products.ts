@@ -38,31 +38,31 @@ export const COLLECTIONS: Collection[] = [
     slug: 'solitaires',
     name: 'Solitaires',
     eyebrow: 'The Solitaires',
-    mood: 'One stone, held to the light — the purest expression of a promise.',
+    mood: 'One stone. Pure light.',
   },
   {
     slug: 'bridal',
     name: 'Bridal',
     eyebrow: 'The Bridal Suite',
-    mood: 'Engagement rings and wedding bands, composed to be worn together for a lifetime.',
+    mood: 'Rings and bands, made for a lifetime.',
   },
   {
     slug: 'signature',
     name: 'Signature',
     eyebrow: 'Signature Pieces',
-    mood: 'Sculptural, unrepeatable compositions for those who wear their own story.',
+    mood: 'Sculptural. Unrepeatable.',
   },
   {
     slug: 'everyday',
     name: 'Everyday',
     eyebrow: 'Everyday Brilliance',
-    mood: 'Diamonds light enough for daylight, made to never leave your side.',
+    mood: 'Light enough to never take off.',
   },
   {
     slug: 'mens',
     name: 'For Him',
     eyebrow: 'For Him',
-    mood: 'Quiet, architectural brilliance — presence without ornament.',
+    mood: 'Quiet brilliance, no ornament.',
   },
 ];
 
@@ -77,8 +77,7 @@ export const PIECES: Piece[] = [
     carat: '~1.20ct',
     image: 'oval-rose-crossover.png',
     alt: 'Oval lab-grown diamond solitaire ring in 18k rose gold with a crossover pavé band, on black marble beside burgundy silk.',
-    description:
-      'A single oval brilliant floats above a crossed, diamond-set band of warm rose gold — a solitaire that reads as movement as much as light.',
+    description: 'An oval brilliant on a crossed pavé band of rose gold.',
     priceLabel: 'Price on request',
   },
   {
@@ -90,8 +89,7 @@ export const PIECES: Piece[] = [
     carat: '~1.50ct',
     image: 'oval-bypass-eastwest.png',
     alt: 'East-west set oval lab-grown diamond ring in white gold with a bypass pavé band, on black marble.',
-    description:
-      'Set east-to-west and cradled by a bypass of pavé, Celeste turns a classic oval on its axis for a silhouette that feels effortlessly modern.',
+    description: 'An oval set east-west, cradled by a bypass of pavé.',
     priceLabel: 'Price on request',
   },
 
@@ -105,8 +103,7 @@ export const PIECES: Piece[] = [
     carat: '~1.80ct centre',
     image: 'oval-halo-bridal-set.png',
     alt: 'Oval lab-grown diamond halo engagement ring with a matching pavé wedding band in white gold, on black marble with burgundy silk.',
-    description:
-      'An oval centre wrapped in a delicate halo, paired with its own pavé band — a bridal set composed to be worn as one.',
+    description: 'An oval halo, paired with its own pavé band.',
     priceLabel: 'Price on request',
   },
   {
@@ -118,8 +115,7 @@ export const PIECES: Piece[] = [
     carat: '~3.00ct centre',
     image: 'round-trinity-solitaire.png',
     alt: 'Round brilliant lab-grown diamond solitaire flanked by three rows of pavé in white gold, reflected on black marble.',
-    description:
-      'A commanding round brilliant lifted on six claws, framed by three rows of pavé — a statement of light for the moment that matters most.',
+    description: 'A round brilliant on six claws, framed by three rows of pavé.',
     priceLabel: 'Price on request',
   },
   {
@@ -131,8 +127,7 @@ export const PIECES: Piece[] = [
     carat: '~4.00ct centre',
     image: 'emerald-eternity-duo.png',
     alt: 'Emerald-cut lab-grown diamond ring set on a full emerald-cut eternity band in white gold, shown as two views on black marble.',
-    description:
-      'An architectural emerald cut carried on a full eternity of emerald-cut diamonds — hall-of-mirrors brilliance from every angle.',
+    description: 'An emerald cut on a full emerald-cut eternity band.',
     priceLabel: 'Price on request',
   },
   {
@@ -144,8 +139,7 @@ export const PIECES: Piece[] = [
     carat: '~1.50ct centre',
     image: 'emerald-baguette-trilogy.png',
     alt: 'Emerald-cut lab-grown diamond three-stone ring with tapered baguette side stones in yellow gold, on dark marble.',
-    description:
-      'A serene emerald cut flanked by tapered baguettes in warm yellow gold — the quiet confidence of a true three-stone.',
+    description: 'An emerald cut flanked by tapered baguettes.',
     priceLabel: 'Price on request',
   },
 
@@ -159,8 +153,7 @@ export const PIECES: Piece[] = [
     carat: '~1.00ct pair',
     image: 'toi-et-moi-blush.png',
     alt: 'Toi-et-moi ring pairing a white oval and a pink marquise lab-grown diamond in yellow gold, with a curved pavé contour band, on ivory stone.',
-    description:
-      'Two souls, two stones — a white oval and a blush-pink marquise held toi-et-moi, completed by a curved contour of pavé.',
+    description: 'A white oval and a blush-pink marquise, held toi-et-moi.',
     priceLabel: 'Price on request',
   },
   {
@@ -172,8 +165,7 @@ export const PIECES: Piece[] = [
     carat: '~2.50ct total',
     image: 'pear-marquise-cluster.png',
     alt: 'Two sculptural cluster rings pairing pear and marquise lab-grown diamonds in white gold, on black marble.',
-    description:
-      'Pears and marquises gathered like petals — a sculptural cluster that catches light from impossible directions.',
+    description: 'Pears and marquises gathered like petals.',
     priceLabel: 'Price on request',
   },
 
@@ -187,8 +179,7 @@ export const PIECES: Piece[] = [
     carat: '~1.00ct pair',
     image: 'round-double-huggie.png',
     alt: 'A pair of double-row round lab-grown diamond huggie earrings in white gold, on a dark tray against brown silk.',
-    description:
-      'Two neat rows of round brilliants that hug the lobe — the diamond you reach for every single day.',
+    description: 'Two neat rows of round brilliants that hug the lobe.',
     priceLabel: 'Price on request',
   },
   {
@@ -200,8 +191,7 @@ export const PIECES: Piece[] = [
     carat: '~7.00ct total',
     image: 'multi-shape-tennis-bracelet.png',
     alt: 'Yellow gold tennis bracelet alternating pear, oval, emerald and marquise lab-grown diamonds, on black marble with burgundy velvet.',
-    description:
-      'A line of alternating fancy shapes — pear, oval, emerald, marquise — strung in warm gold. A tennis bracelet that refuses to be ordinary.',
+    description: 'Alternating pear, oval, emerald and marquise, strung in gold.',
     priceLabel: 'Price on request',
   },
 
@@ -215,8 +205,7 @@ export const PIECES: Piece[] = [
     carat: '~1.00ct',
     image: 'emerald-signet-band.png',
     alt: 'A solitaire emerald-cut lab-grown diamond set flush into a broad yellow gold band, on dark marble.',
-    description:
-      'A single emerald cut set low into a broad, polished band — architectural brilliance with nothing to prove.',
+    description: 'An emerald cut set low into a broad, polished band.',
     priceLabel: 'Price on request',
   },
 ];

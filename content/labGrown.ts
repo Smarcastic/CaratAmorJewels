@@ -5,25 +5,13 @@ export const LAB_GROWN = {
     eyebrow: 'The Science',
     headline: ['Real diamonds.', 'Grown, not mined.'],
     intro:
-      'A lab-grown diamond is a diamond — the same carbon crystal, the same fire, the same hardness. The only difference is its origin: weeks in a laboratory, rather than a billion years underground.',
+      'Same carbon crystal, same fire, same hardness. The only difference is origin — weeks in a lab, not a billion years underground.',
   },
   timeline: [
-    {
-      stage: 'Seed',
-      body: 'It starts with a thin sliver of diamond — a seed crystal — placed inside a growth chamber.',
-    },
-    {
-      stage: 'Plasma',
-      body: 'Carbon-rich gases are energised into a glowing plasma, releasing pure carbon atoms.',
-    },
-    {
-      stage: 'Growth',
-      body: 'Layer by layer, those atoms bond to the seed in the same cubic lattice as a mined diamond.',
-    },
-    {
-      stage: 'Cut',
-      body: 'The rough crystal is cleaved, cut and polished by hand — then graded and certified.',
-    },
+    { stage: 'Seed', body: 'A sliver of diamond, placed in a growth chamber.' },
+    { stage: 'Plasma', body: 'Carbon gases energised into glowing plasma.' },
+    { stage: 'Growth', body: 'Atoms bond to the seed, layer by layer.' },
+    { stage: 'Cut', body: 'Cleaved, cut, polished — then certified.' },
   ],
   comparison: {
     title: 'Identical by every measure.',
@@ -39,27 +27,27 @@ export const LAB_GROWN = {
   faqs: [
     {
       q: 'Are lab-grown diamonds real diamonds?',
-      a: 'Yes. They are chemically, physically and optically identical to mined diamonds — pure crystallised carbon. They are not simulants like cubic zirconia or moissanite.',
+      a: 'Yes — identical to mined diamonds in every way. Not simulants like cubic zirconia or moissanite.',
     },
     {
       q: 'Will anyone be able to tell the difference?',
-      a: 'Not by eye, and not with a jeweller’s loupe. Only specialised laboratory equipment can distinguish origin, and every stone is certified accordingly.',
+      a: 'Not by eye or loupe. Only lab equipment can distinguish origin — and every stone is certified.',
     },
     {
       q: 'Are they graded the same way?',
-      a: 'Yes — on the same 4Cs (cut, colour, clarity, carat) by independent laboratories, and each of our stones ships with its own certificate.',
+      a: 'Yes — the same 4Cs, by independent labs, with a certificate for each stone.',
     },
     {
-      q: 'Do lab-grown diamonds hold their beauty over time?',
-      a: 'A diamond is the hardest natural material known. A lab-grown diamond shares that hardness and will not cloud, scratch or fade with wear.',
+      q: 'Will it last?',
+      a: 'A diamond is the hardest material known. It will not cloud, scratch or fade.',
     },
     {
       q: 'Why choose lab-grown?',
-      a: 'The same brilliance and permanence, with a lighter conscience and a lighter footprint — and often a larger, finer stone for the same investment.',
+      a: 'The same brilliance, a lighter footprint — often a larger stone for the same investment.',
     },
     {
-      q: 'How do I care for my piece?',
-      a: 'Warm water, a little mild soap and a soft brush keep it brilliant. And we are always one message away if your piece ever needs professional care.',
+      q: 'How do I care for it?',
+      a: 'Warm water, mild soap, a soft brush. And we are always a message away.',
     },
   ],
 } as const;

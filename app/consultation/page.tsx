@@ -12,17 +12,17 @@ const EXPECT = [
   {
     n: '01',
     title: 'A conversation first',
-    body: 'We begin on WhatsApp or a call — what you are dreaming of, your budget, your timeline. No counters, no pressure, no scripts.',
+    body: 'We begin on WhatsApp or a call. No pressure, no scripts.',
   },
   {
     n: '02',
     title: 'No obligation',
-    body: 'Ask everything. Compare stones, metals and certificates at your own pace — there is never an expectation to decide on the day.',
+    body: 'Ask everything, compare at your own pace. Decide when you are ready.',
   },
   {
     n: '03',
     title: 'Made and delivered',
-    body: 'When you are ready, your piece is grown, cut, certified and set to order — then delivered insured to your door, anywhere in India.',
+    body: 'Grown to order, certified, delivered insured to your door.',
   },
 ];
 

@@ -37,10 +37,9 @@ export const BRAND_STORY = {
   eyebrow: 'The Maison',
   headline: 'Born in the city of diamonds.',
   body: [
-    'Hyderabad has known diamonds for four hundred years. The mines of Golconda gave the world the Koh-i-Noor, the Hope, the Regent — stones that crossed oceans and crowned empires. We grew up in that city, hearing those stories, and wondering why their next chapter had to be written the old way.',
-    'Carat Amor began, like most love stories, with a search for one ring. What we found instead was an industry that made brilliance feel complicated — opaque pricing, grades nobody explained, and stones whose journeys no one could quite account for. We decided the most romantic thing we could do was make it simple.',
-    'So we chose science. Every Carat Amor diamond is grown from a single seed of carbon — the same crystal, the same fire as anything Golconda ever surrendered — then cut, certified and set by hands that have worked gold for generations. No mines. No middlemen. No stories we cannot tell you to your face.',
-    'We work by conversation — on WhatsApp, on a call, over coffee if you are in Hyderabad — one piece at a time, made to order and delivered to your door. Carat means weight. Amor means love. We measure both carefully.',
+    'Hyderabad has known diamonds for four hundred years — Golconda gave the world the Koh-i-Noor. We grew up on those stories, and wondered why the next chapter had to be written the old way.',
+    'So we chose science. Every stone is grown from a single seed of carbon — the same fire, cut and set by hands that have worked gold for generations. No mines. No middlemen.',
+    'We work by conversation, one piece at a time, delivered to your door. Carat means weight. Amor means love. We measure both carefully.',
   ],
 } as const;
 
@@ -63,27 +62,18 @@ export const HOME = {
     number: '02',
     label: 'The Science',
     panels: [
-      {
-        word: 'Carbon.',
-        body: 'It begins with a single seed of carbon — the same element, the same lattice that forms deep within the earth.',
-      },
-      {
-        word: 'Pressure.',
-        body: 'Under extraordinary heat and pressure, that seed grows atom by atom into a rough crystal, indistinguishable in every measure.',
-      },
-      {
-        word: 'Brilliance.',
-        body: 'Cut and polished by master hands, it releases the same fire — a diamond in every sense, grown in weeks, not aeons.',
-      },
+      { word: 'Carbon.', body: 'A single seed, the same element the earth uses.' },
+      { word: 'Pressure.', body: 'Grown atom by atom into a rough crystal.' },
+      { word: 'Brilliance.', body: 'Cut and polished — a diamond in every sense.' },
     ],
-    kicker: 'Chemically, optically, physically identical to mined.',
+    kicker: 'Identical to mined, by every measure.',
     cta: 'Understand Lab-Grown',
   },
   signature: {
     number: '03',
     label: 'The Collection',
     headline: 'Signature pieces.',
-    intro: 'A curated hand of solitaires, bridal sets and everyday brilliance — each grown, cut and set in-house.',
+    intro: 'Solitaires, bridal sets and everyday brilliance — grown and set in-house.',
   },
   craft: {
     number: '04',
@@ -115,7 +105,7 @@ export const HOME = {
   },
   invitation: {
     headline: 'Your piece is waiting.',
-    body: 'Every Carat Amor piece is made to order and delivered to your door — begin the conversation from wherever you are.',
+    body: 'Made to order, delivered to your door.',
     ctaPrimary: 'Book a Private Consultation',
     ctaSecondary: 'Enquire on WhatsApp',
   },

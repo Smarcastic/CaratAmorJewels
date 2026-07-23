@@ -19,18 +19,18 @@ export const metadata: Metadata = {
 const ATELIER_WAY = [
   {
     n: '01',
-    title: 'A conversation, not a counter',
-    body: 'Everything begins on WhatsApp or a call — what you are dreaming of, what you want to spend, what she or he will actually wear.',
+    title: 'A conversation',
+    body: 'It begins on WhatsApp or a call — your vision, your budget.',
   },
   {
     n: '02',
-    title: 'Made for one person',
-    body: 'Your stone is grown, cut, certified and set to order. Nothing waits in a case for someone else; every piece is born spoken for.',
+    title: 'Made for one',
+    body: 'Grown, cut, certified and set to order. Never off a shelf.',
   },
   {
     n: '03',
-    title: 'Delivered like a promise',
-    body: 'Fully insured, certificate in hand, to your door anywhere in India. And we remain one message away, for life.',
+    title: 'Delivered',
+    body: 'Insured, to your door, anywhere in India.',
   },
 ];
 
@@ -88,8 +88,8 @@ export default function MaisonPage() {
           <h2 className="text-center font-display text-ivory" style={{ fontSize: 'clamp(1.9rem,4vw,3.25rem)' }}>
             The atelier way.
           </h2>
-          <p className="font-accent mx-auto mt-5 max-w-[44ch] text-center text-lg italic text-mist">
-            Every piece begins with a conversation and ends at your door.
+          <p className="font-accent mx-auto mt-5 max-w-[40ch] text-center text-lg italic text-mist">
+            From a conversation to your door.
           </p>
 
           <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-3 md:gap-10">
